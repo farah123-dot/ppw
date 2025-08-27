@@ -352,7 +352,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -368,6 +370,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topik-web-mining-terdiri-dari">Topik web mining terdiri dari</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -379,10 +389,25 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pengantar-web-mining">
 <h1>Pengantar Web mining<a class="headerlink" href="#pengantar-web-mining" title="Link to this heading">#</a></h1>
-<p>Web Mining adalah proses mengektraksi informasi dari web menggunakan teknik data mining. Proses web mining mencakup tiga tahap Utama yaitu : pengumpulan data (crawling, API, eksplorasi), pra-pemrosesan (transformasi, seleksi fitur, dan pembuatan embedding), dan data mining (pembangunan model, evaluasi, iterasi). Web mining dibagi menjadi tiga kategori Utama yaitu :</p>
+<section id="topik-web-mining-terdiri-dari">
+<h2>Topik web mining terdiri dari<a class="headerlink" href="#topik-web-mining-terdiri-dari" title="Link to this heading">#</a></h2>
+<p>A. Pengantar web mining</p>
+<p>Web Mining adalah proses mengektraksi informasi dari web menggunakan teknik data mining. Proses web mining mencakup tiga tahap Utama yaitu : pengumpulan data (crawling, API, eksplorasi), pra-pemrosesan (transformasi, seleksi fitur, dan pembuatan embedding), dan data mining (pembangunan model, evaluasi, iterasi).</p>
+<p>B. Web Crawling</p>
+<p>Web crawling adalah proses otomatis data dari halaman-halaman web. Program untuk melakukan crawling disebut crawler. Program ini mengikuti tautan antar halaman web untuk menemukan dan mengunduh konten, lalu menyimpan dalam sebuah database yang kemudian digunakan oleh mesin pencari untuk membuat indeks dan memberkan hasil pencarian yang relevan kepada pengguna.</p>
+<p>Tujuan Web Crawling adalah</p>
 <ol class="arabic simple">
-<li><p>Web Content Mining (Text Mining) berfokus pada konten halaman seperti teks, gambar, video, audio, data terstruktur.</p></li>
+<li><p>Membuat indeks mesin pencari</p></li>
+<li><p>Pengumpulan data</p></li>
+<li><p>Pemantauan prubahan</p></li>
 </ol>
+<p>C. Web Data Prepocessing</p>
+<p>Web data processing adalah tahap persiapan data sebelum dilakukan analisis. Data dari web biasanya tidak terstruktur, mengandung noise, dan berukuran besar sehingga memerluka pembersihan. Proses preprocessing meliputi penghapusan tag HTML, normalisasi teks, penghapusan stop word, stemming, dan konversi ke format yang sesuai. Tahap ini sangat penting agar model analisis dapat bekerja secara optimal.</p>
+<p>D. Pembelajaran Terawasi (Supervised Learning)</p>
+<p>Pembelajaran terawasi adalah salah satu pendekatan utama dalam pembelajaran mesin yang menggunakan data berlabel untuk melatih model. Metode ini digunakan untuk membangun model prediktif yang dilatih menggunakan data berlabe, yang berarti setiap contoh data dilengkapi dengan label atau hasil yang diinginkan. Dalam web mining, pembelajaran terawasi sering digunakan untuk klasifikasi dokumen, analisis sentimen, dan deteksi spam. Algoritma umum yang digunakan adalah decision tree, naive bayes, san support vector machine.</p>
+<p>E. Pembelajaran Tak Terawasi (Unsupervised Learning)</p>
+<p>Pembelajaran tak terawasi adalah metode pembelajaran mesin yang tidak memerlukan data label. Dalam web mining, metode ini sering digunakan untuk clustering dokumen, segmentasi pengguna, dan analisis topik. Algoritma yang umum digunakan adalah k-means, hierarchical clustering, dan metode berbasis asosisai.</p>
+<p>F. Web Content Mining (Text Mining) Web Content Mining (Text Mining) berfokus pada konten halaman seperti teks, gambar, video, audio, data terstruktur.</p>
 <p>Aplikasi yang digunakan adalah :</p>
 <ul class="simple">
 <li><p>Ekstraksi informasi adalah proses otomatis untuk mengambil data terstruktur dari konten web yang tidak terstruktur atau semi-struktur. Contohnya adalah mengekstraks nama orang, lokasi, atau tanggal.</p></li>
@@ -392,19 +417,26 @@ document.write(`
 <li><p>Pengelompokan dokumen adalah pengelompokan dokumen berdasarkan kesamaan antar dokumen. Teknik yang digunakan adalah Algritma K-Means, Pengelompokan Hierarkis, S-BERT.</p></li>
 <li><p>Ektraksi kata kunci bertujuan untuk menentukan kata atau prasa penting dalam teks yang ada dalam dokumen.</p></li>
 </ul>
-<ol class="arabic simple" start="2">
-<li><p>Web Usage Mining adalah mengekstrak informasi dari data interaksi pengguna, melalui kunjungan halaman web dan transaksi. Analisis ini digunakan untuk karakteristik pengguna dan profil penggunaan, data clickstream (catatan untuk klik pengguna saat menjelajahi situs web), analisis clickstream (proses menganalisis pola perilaku pengguna).</p></li>
-</ol>
+<p>G. Web Usage Mining
+Web Usage Mining adalah mengekstrak informasi dari data interaksi pengguna, melalui kunjungan halaman web dan transaksi. Analisis ini digunakan untuk karakteristik pengguna dan profil penggunaan, data clickstream (catatan untuk klik pengguna saat menjelajahi situs web), analisis clickstream (proses menganalisis pola perilaku pengguna).</p>
 <p>Aplikasi yang digunakan adalah :</p>
 <ul class="simple">
 <li><p>Product recommendation yaitu semua fitur yang memprediksi dan menyarankan produk yang paling mungkin diminati oleh seorang pengguna.</p></li>
 <li><p>Prsonalized search (pencarian yang dipersonalisasi) yaitu pendekatan dalam pencarian informasi di mana hasil pencarian disesuaikan dengan perilaku, dan konteks pengguna individu.</p></li>
 </ul>
-<ol class="arabic simple" start="3">
-<li><p>Web Structure Mining (Graph Mining) berfokus pada pola hyperlink dan hubungan antar halaman atau actor di web, termasuk jaringan sosial.</p></li>
-</ol>
-<p>Aplikasi yang digunakan adalah Grafik web adalah representasi visual dari halaman web sebagai simpul (node) dan hyperlink sebagai sisi (edge).</p>
+<p>H. Web Structure Mining (Graph Mining)
+Web Structure Mining (Graph Mining) berfokus pada pola hyperlink dan hubungan antar halaman atau actor di web, termasuk jaringan sosial.</p>
+<p>Aplikasi yang digunakan dalam Grafik web adalah representasi visual dari halaman web sebagai simpul (node) dan hyperlink sebagai sisi (edge).</p>
 <p>Metode yang umum digunakan adalah centrality dan K-Cores untuk menentukan simpul penting dan komunitas dalam jaringan.</p>
+<p>I. Deployment Sistem</p>
+<p>Deployment system adalah proses pemindahan system atau aplikasi dari lingkungan pengembangan ke lingkungan produksi yang sebenarnya agar dapat digunakan oleh pengguna akhir. Tahap ini terjadi setelah pengembangan dan pengujian selesai, bertujuan agar system berjalan secara stabil, aman, dan sesuai dengan kebutuhan.</p>
+<p>Tujuan utama deploy sistem adalah :</p>
+<ol class="arabic simple">
+<li><p>Membuat sistem tersedia</p></li>
+<li><p>Memberikan solusi</p></li>
+<li><p>Memastikan ketersediaan</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -452,6 +484,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topik-web-mining-terdiri-dari">Topik web mining terdiri dari</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
