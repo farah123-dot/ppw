@@ -57,7 +57,7 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'CrawlingPPW';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'crawling_pta';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Crawling" href="Crawling.html" />
@@ -253,7 +253,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FCrawlingPPW.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcrawling_pta.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -283,7 +283,7 @@
       
       
       
-      <li><a href="_sources/CrawlingPPW.ipynb" target="_blank"
+      <li><a href="_sources/crawling_pta.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -500,7 +500,7 @@ document.write(`
         <span class="s2">&quot;prodi&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">}</span>
 
-    <span class="n">total_prodi</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">total_prodi</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">total_pages</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">max_pages_dict</span> <span class="o">=</span> <span class="p">{}</span>
 
@@ -588,20 +588,17 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] Ilmu Hukum - Page 1/284 [--------------------] 0.35%
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] Ilmu Hukum - Page 2/284 [--------------------] 0.70%
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pta_all</span><span class="p">()</span>
 
-<span class="nn">Cell In[6], line 29,</span> in <span class="ni">pta_all</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_page</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">29</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="n">jurnals</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;li[data-cat=&quot;#luxury&quot;]&#39;</span><span class="p">)</span>
+<span class="nn">Cell In[6], line 46,</span> in <span class="ni">pta_all</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">id_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;/detail/(\d+)&quot;</span><span class="p">,</span> <span class="n">link_keluar</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="n">pta_id</span> <span class="o">=</span> <span class="n">id_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">id_match</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="ne">---&gt; </span><span class="mi">46</span> <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link_keluar</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="n">soup1</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">isi</span> <span class="o">=</span> <span class="n">soup1</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s1">&#39;div#content_journal&#39;</span><span class="p">)</span>
 
 <span class="nn">File ~/.local/lib/python3.12/site-packages/requests/api.py:73,</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
 <span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -849,10 +846,6 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.12/dist-packages/soupsieve/css_parser.py:876: FutureWarning: The pseudo class &#39;:contains&#39; is deprecated, &#39;:-soup-contains&#39; should be used moving forward.
-  warnings.warn(  # noqa: B028
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] Ilmu Hukum - Page 3/3 [████████████████████] 100.00%
 
 [2] Teknologi Industri Pertanian - Page 3/3 [████████████████████] 100.00%
@@ -938,11 +931,11 @@ document.write(`
 
 ✅ Seluruh data berhasil dikumpulkan!
 📊 Total entri: 481
-⏱️ Waktu eksekusi: 0 jam 24 menit 43 detik
+⏱️ Waktu eksekusi: 0 jam 14 menit 14 detik
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-cad335c2-8b3f-4c37-ae60-d8e94c44ad83" class="colab-df-container">
+  <div id="df-2064a2d0-3339-4fd8-a484-6ff8273147f0" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1100,7 +1093,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-cad335c2-8b3f-4c37-ae60-d8e94c44ad83')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2064a2d0-3339-4fd8-a484-6ff8273147f0')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1152,12 +1145,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-cad335c2-8b3f-4c37-ae60-d8e94c44ad83 button.colab-df-convert');
+        document.querySelector('#df-2064a2d0-3339-4fd8-a484-6ff8273147f0 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-cad335c2-8b3f-4c37-ae60-d8e94c44ad83');
+        const element = document.querySelector('#df-2064a2d0-3339-4fd8-a484-6ff8273147f0');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1177,8 +1170,8 @@ document.write(`
   </div>
 
 
-    <div id="df-71ce0a68-8f80-494f-a936-1e0a48af4bba">
-      <button class="colab-df-quickchart" onclick="quickchart('df-71ce0a68-8f80-494f-a936-1e0a48af4bba')"
+    <div id="df-f88aad13-4c54-4552-a798-17ccb740ebfd">
+      <button class="colab-df-quickchart" onclick="quickchart('df-f88aad13-4c54-4552-a798-17ccb740ebfd')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -1297,7 +1290,7 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-71ce0a68-8f80-494f-a936-1e0a48af4bba button');
+            document.querySelector('#df-f88aad13-4c54-4552-a798-17ccb740ebfd button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -1474,11 +1467,11 @@ document.write(`
 
 ✅ Seluruh link berhasil dikumpulkan!
 📊 Total entri: 481
-⏱️ Waktu eksekusi: 0 jam 5 menit 1 detik
+⏱️ Waktu eksekusi: 0 jam 2 menit 53 detik
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-2593b473-d225-4cf2-be65-eee72774a413" class="colab-df-container">
+  <div id="df-1dbc3b01-3ff1-4db5-a8ae-b711d162dd9b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1576,7 +1569,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-2593b473-d225-4cf2-be65-eee72774a413')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1dbc3b01-3ff1-4db5-a8ae-b711d162dd9b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1628,12 +1621,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-2593b473-d225-4cf2-be65-eee72774a413 button.colab-df-convert');
+        document.querySelector('#df-1dbc3b01-3ff1-4db5-a8ae-b711d162dd9b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-2593b473-d225-4cf2-be65-eee72774a413');
+        const element = document.querySelector('#df-1dbc3b01-3ff1-4db5-a8ae-b711d162dd9b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1653,8 +1646,8 @@ document.write(`
   </div>
 
 
-    <div id="df-c42c2e9a-a7fc-4a66-816e-51424bfb6c24">
-      <button class="colab-df-quickchart" onclick="quickchart('df-c42c2e9a-a7fc-4a66-816e-51424bfb6c24')"
+    <div id="df-cdb5fc91-1a75-44b3-a7dc-0dfb46773cf0">
+      <button class="colab-df-quickchart" onclick="quickchart('df-cdb5fc91-1a75-44b3-a7dc-0dfb46773cf0')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -1773,7 +1766,7 @@ document.write(`
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-c42c2e9a-a7fc-4a66-816e-51424bfb6c24 button');
+            document.querySelector('#df-cdb5fc91-1a75-44b3-a7dc-0dfb46773cf0 button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
@@ -1915,11 +1908,11 @@ sepakbola - Page 5/5 [███████████████████�
 
 ✅ Seluruh data berhasil dikumpulkan!
 📊 Total entri: 900
-⏱️ Waktu eksekusi: 0 jam 27 menit 16 detik
+⏱️ Waktu eksekusi: 0 jam 17 menit 34 detik
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-5110d952-4c04-453a-b37b-8b0940c3147d" class="colab-df-container">
+  <div id="df-df2e307a-2334-4180-805f-23109eab5d60" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1947,37 +1940,37 @@ sepakbola - Page 5/5 [███████████████████�
   <tbody>
     <tr>
       <th>0</th>
-      <td>2068198</td>
-      <td>Respons Abdul Kadir Karding soal Domino dan Re...</td>
-      <td>POLITIKUS Partai Kebangkitan Bangsa (PKB)Abdul...</td>
+      <td>2068508</td>
+      <td>Setelah Rapat dengan DPR, Menteri Keuangan Tem...</td>
+      <td>MENTERI Keuangan Purbaya Yudhi Sadewa menemui ...</td>
       <td>politik</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2068188</td>
-      <td>Menkes Budi Gunadi Kirim Tim Pelajari Uji Klin...</td>
-      <td>KEMENTERIAN Kesehatan turut merespons peluncur...</td>
+      <td>2068499</td>
+      <td>Mahasiswa Tasikmalaya Desak Penghapusan Dana P...</td>
+      <td>MAHASISWA Kota Tasikmalaya, Jawa Barat, mengge...</td>
       <td>politik</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2068167</td>
-      <td>Penyusunan RUU Perampasan Aset Bakal Paralel d...</td>
-      <td>KETUA Badan Legislasi DPR Bob Hasan menyatakan...</td>
+      <td>2068489</td>
+      <td>DPR Harap Menpora Baru Tinjau Ulang Permenpora...</td>
+      <td>KOMISI X Dewan Perwakilan Rakyat (DPR) berhara...</td>
       <td>politik</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2068149</td>
-      <td>Bahlil Kirim Tim untuk Mengecek Info Longsor d...</td>
-      <td>MENTERI Energi dan Sumber Daya Mineral (ESDM)B...</td>
+      <td>2068485</td>
+      <td>Dasco Temui Prabowo di Istana, Laporkan Keputu...</td>
+      <td>PRESIDENPrabowoSubianto bertemu dengan Wakil K...</td>
       <td>politik</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2068145</td>
-      <td>Koalisi Sipil Soroti Upaya Kriminalisasi TNI t...</td>
-      <td>KOALISI Masyarakat Sipil untuk Reformasi Sekto...</td>
+      <td>2068478</td>
+      <td>Sengketa Pilkada Kabupaten Boven Digoel Kandas...</td>
+      <td>DUA permohonan sengketa pemilihan kepala daera...</td>
       <td>politik</td>
     </tr>
     <tr>
@@ -1989,37 +1982,37 @@ sepakbola - Page 5/5 [███████████████████�
     </tr>
     <tr>
       <th>895</th>
-      <td>2065734</td>
-      <td>Calvin Verdonk Bicara dengan Patrick Kluivert ...</td>
-      <td>PEMAIN sepak bolaCalvin Verdonkmengatakan bahw...</td>
+      <td>2066144</td>
+      <td>Pesan Alexander Isak kepada Newcastle Usai Sag...</td>
+      <td>PEMAIN sepak bolaAlexander Isakberterima kasih...</td>
       <td>sepakbola</td>
     </tr>
     <tr>
       <th>896</th>
-      <td>2065727</td>
-      <td>Penyebab Bayer Leverkusen Pecat Erik Ten Hag s...</td>
-      <td>BAYER Leverkusen memecat pelatihErik Ten Hagse...</td>
+      <td>2066121</td>
+      <td>Prediksi Indonesia vs Laos di Kualifikasi Pial...</td>
+      <td>DUEL Timnas U-23Indonesia vs Laosakan tersaji ...</td>
       <td>sepakbola</td>
     </tr>
     <tr>
       <th>897</th>
-      <td>2065643</td>
-      <td>Calvin Verdonk Pindah ke Lille, Mees Hilgers B...</td>
-      <td>DUA pemain tim nasional sepak bola Indonesia,C...</td>
+      <td>2066036</td>
+      <td>Alasan Patrick Kluivert Puji Thom Haye dan Eli...</td>
+      <td>PELATIHTimnas IndonesiaPatrick Kluivert menila...</td>
       <td>sepakbola</td>
     </tr>
     <tr>
       <th>898</th>
-      <td>2065621</td>
-      <td>Kualifikasi Piala Asia U-23 2026: Tim Makau, K...</td>
-      <td>PERTANDINGANKualifikasi Piala Asia U-23 2026ak...</td>
+      <td>2066051</td>
+      <td>Daftar 23 Pemain Manchester City untuk Liga Ch...</td>
+      <td>BURSA transfer musim panas sudah ditutup.Manch...</td>
       <td>sepakbola</td>
     </tr>
     <tr>
       <th>899</th>
-      <td>2065577</td>
-      <td>Persiapan Timnas Indonesia untuk Kualifikasi P...</td>
-      <td>MANAJER Timnas U-23 Indonesia Zaki Iskandar me...</td>
+      <td>2066029</td>
+      <td>Super League Kirim 13 Pemain untuk Timnas Indo...</td>
+      <td>KOMPETISI sepak bola teratas sepak bola Indone...</td>
       <td>sepakbola</td>
     </tr>
   </tbody>
@@ -2029,7 +2022,7 @@ sepakbola - Page 5/5 [███████████████████�
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5110d952-4c04-453a-b37b-8b0940c3147d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-df2e307a-2334-4180-805f-23109eab5d60')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2081,12 +2074,12 @@ sepakbola - Page 5/5 [███████████████████�
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5110d952-4c04-453a-b37b-8b0940c3147d button.colab-df-convert');
+        document.querySelector('#df-df2e307a-2334-4180-805f-23109eab5d60 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5110d952-4c04-453a-b37b-8b0940c3147d');
+        const element = document.querySelector('#df-df2e307a-2334-4180-805f-23109eab5d60');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2106,8 +2099,8 @@ sepakbola - Page 5/5 [███████████████████�
   </div>
 
 
-    <div id="df-79924c00-4427-4d29-acfe-d9845c28b485">
-      <button class="colab-df-quickchart" onclick="quickchart('df-79924c00-4427-4d29-acfe-d9845c28b485')"
+    <div id="df-5412458a-3a8e-40be-85a1-5c913defa55d">
+      <button class="colab-df-quickchart" onclick="quickchart('df-5412458a-3a8e-40be-85a1-5c913defa55d')"
                 title="Suggest charts"
                 style="display:none;">
 
@@ -2226,7 +2219,7 @@ sepakbola - Page 5/5 [███████████████████�
         }
         (() => {
           let quickchartButtonEl =
-            document.querySelector('#df-79924c00-4427-4d29-acfe-d9845c28b485 button');
+            document.querySelector('#df-5412458a-3a8e-40be-85a1-5c913defa55d button');
           quickchartButtonEl.style.display =
             google.colab.kernel.accessAllowed ? 'block' : 'none';
         })();
