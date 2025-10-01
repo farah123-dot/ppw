@@ -458,23 +458,6 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Contoh pemakaian</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">get_max_page</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>172
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/codespace/.local/lib/python3.12/site-packages/soupsieve/css_parser.py:876: FutureWarning: The pseudo class &#39;:contains&#39; is deprecated, &#39;:-soup-contains&#39; should be used moving forward.
-  warnings.warn(  # noqa: B028
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_progress</span><span class="p">(</span><span class="n">prodi_id</span><span class="p">,</span> <span class="n">prodi</span><span class="p">,</span> <span class="n">current_page</span><span class="p">,</span> <span class="n">total_pages</span><span class="p">):</span>
     <span class="n">percent</span> <span class="o">=</span> <span class="p">(</span><span class="n">current_page</span> <span class="o">/</span> <span class="n">total_pages</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
     <span class="n">bar_length</span> <span class="o">=</span> <span class="mi">20</span>
@@ -608,6 +591,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/codespace/.local/lib/python3.12/site-packages/soupsieve/css_parser.py:876: FutureWarning: The pseudo class &#39;:contains&#39; is deprecated, &#39;:-soup-contains&#39; should be used moving forward.
+  warnings.warn(  # noqa: B028
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9] Teknik Industri - Page 1/143 [--------------------] 0.70%
 </pre></div>
 </div>
@@ -619,10 +606,10 @@ document.write(`
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pta_teknik</span><span class="p">()</span>
 
-<span class="nn">Cell In[6], line 53,</span> in <span class="ni">pta_teknik</span><span class="nt">()</span>
+<span class="nn">Cell In[5], line 53,</span> in <span class="ni">pta_teknik</span><span class="nt">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="n">pta_id</span> <span class="o">=</span> <span class="n">id_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">id_match</span> <span class="k">else</span> <span class="kc">None</span>
 <span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">try</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">53</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link_keluar</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
