@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'LDA2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="TF-IDF &amp; Word Embedding" href="TF_IDF.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +123,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,11 +178,12 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Pengantar.html">Pengantar Web mining</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Crawling.html">Crawling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="crawling_pta.html">Crawling PTA dan Berita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TF_IDF.html">TF-IDF &amp; Word Embedding</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Klasifikasi dengan ektraksi fitur menggunakan Latent Dirichlet Allocation (LDA)</a></li>
 </ul>
 
     </div>
@@ -547,9 +547,7 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scipy
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached scipy-1.16.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (62 kB)
+  Using cached scipy-1.16.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (62 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from gensim) (7.3.1)
@@ -589,10 +587,10 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numpy==1.26.4
-  Using cached numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using cached numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.0 MB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+Using cached numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.0 MB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: numpy
@@ -606,9 +604,6 @@ Successfully installed numpy-1.26.4
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -619,16 +614,16 @@ Successfully installed numpy-1.26.4
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: gensim in /usr/local/python/3.12.1/lib/python3.12/site-packages (4.3.3)
-Requirement already satisfied: nltk in /usr/local/python/3.12.1/lib/python3.12/site-packages (3.9.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nltk in /usr/local/python/3.12.1/lib/python3.12/site-packages (3.9.2)
 Requirement already satisfied: numpy&lt;2.0,&gt;=1.18.5 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from gensim) (1.26.4)
 Requirement already satisfied: scipy&lt;1.14.0,&gt;=1.7.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from gensim) (1.13.1)
 Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from gensim) (7.3.1)
 Requirement already satisfied: click in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (8.3.0)
 Requirement already satisfied: joblib in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (1.5.2)
 Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (2025.9.18)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tqdm in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (4.67.1)
+Requirement already satisfied: tqdm in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (4.67.1)
 Requirement already satisfied: wrapt in /usr/local/python/3.12.1/lib/python3.12/site-packages (from smart-open&gt;=1.8.1-&gt;gensim) (1.17.3)
 </pre></div>
 </div>
@@ -658,9 +653,7 @@ Requirement already satisfied: wrapt in /usr/local/python/3.12.1/lib/python3.12/
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package wordnet to
 [nltk_data]     /home/codespace/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data]   Package wordnet is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -794,36 +787,13 @@ Tokenized and lemmatized document:
 <span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lemmatize_stemming</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">return</span> <span class="n">result</span>
 
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/nltk/corpus/reader/wordlist.py:21,</span> in <span class="ni">WordListCorpusReader.words</span><span class="nt">(self, fileids, ignore_lines_startswith)</span>
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/nltk/corpus/reader/wordlist.py:22,</span> in <span class="ni">WordListCorpusReader.words</span><span class="nt">(self, fileids, ignore_lines_startswith)</span>
 <span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="k">def</span><span class="w"> </span><span class="nf">words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fileids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ignore_lines_startswith</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">):</span>
 <span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="k">return</span> <span class="p">[</span>
 <span class="g g-Whitespace">     </span><span class="mi">20</span>         <span class="n">line</span>
-<span class="nn">---&gt; 21         for line</span> in <span class="ni">line_tokenize(self.raw</span><span class="nt">(fileids))</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">ignore_lines_startswith</span><span class="p">)</span>
+<span class="nn">     21         for line</span> in <span class="ni">line_tokenize(self.raw</span><span class="nt">(fileids))</span>
+<span class="ne">---&gt; </span><span class="mi">22</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">ignore_lines_startswith</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="p">]</span>
-
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/nltk/corpus/reader/api.py:218,</span> in <span class="ni">CorpusReader.raw</span><span class="nt">(self, fileids)</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="n">contents</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">    </span><span class="mi">217</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fileids</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">218</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span>         <span class="n">contents</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span> <span class="k">return</span> <span class="n">concat</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/nltk/corpus/reader/api.py:231,</span> in <span class="ni">CorpusReader.open</span><span class="nt">(self, file)</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span><span class="sd"> Return an open stream that can be used to read the given file.</span>
-<span class="g g-Whitespace">    </span><span class="mi">225</span><span class="sd"> If the file&#39;s encoding is not None, then the stream will</span>
-<span class="sd">   (...)    228 :param file: The file identifier of the file to read.</span>
-<span class="g g-Whitespace">    </span><span class="mi">229</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">230</span> <span class="n">encoding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">231</span> <span class="n">stream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">232</span> <span class="k">return</span> <span class="n">stream</span>
-
-<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/nltk/data.py:323,</span> in <span class="ni">FileSystemPathPointer.open</span><span class="nt">(self, encoding)</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span> <span class="k">def</span><span class="w"> </span><span class="nf">open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">323</span>     <span class="n">stream</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">324</span>     <span class="k">if</span> <span class="n">encoding</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">325</span>         <span class="n">stream</span> <span class="o">=</span> <span class="n">SeekableUnicodeStreamReader</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">encoding</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -29208,6 +29178,15 @@ Proses selesai.
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="TF_IDF.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">TF-IDF &amp; Word Embedding</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
