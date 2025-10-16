@@ -57,7 +57,7 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'TF_IDF';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TF-IDF';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Klasifikasi dengan ektraksi fitur menggunakan Latent Dirichlet Allocation (LDA)" href="LDA2.html" />
@@ -256,7 +256,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTF_IDF.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTF-IDF.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +286,7 @@
       
       
       
-      <li><a href="_sources/TF_IDF.ipynb" target="_blank"
+      <li><a href="_sources/TF-IDF.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -411,12 +411,8 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scikit-learn in /home/codespace/.local/lib/python3.12/site-packages (1.7.0)
 Requirement already satisfied: numpy&gt;=1.22.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from scikit-learn) (1.26.4)
 Requirement already satisfied: scipy&gt;=1.8.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from scikit-learn) (1.13.1)
-Requirement already satisfied: joblib&gt;=1.2.0 in /home/codespace/.local/lib/python3.12/site-packages (from scikit-learn) (1.5.1)
+Requirement already satisfied: joblib&gt;=1.2.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from scikit-learn) (1.5.2)
 Requirement already satisfied: threadpoolctl&gt;=3.1.0 in /home/codespace/.local/lib/python3.12/site-packages (from scikit-learn) (3.6.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.1.1</span> -&gt; <span class=" -Color -Color-Green">25.2</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3 -m pip install --upgrade pip</span>
 </pre></div>
 </div>
 </div>
@@ -914,10 +910,6 @@ Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/python/3.12.1/
 Requirement already satisfied: wrapt in /usr/local/python/3.12.1/lib/python3.12/site-packages (from smart-open&gt;=1.8.1-&gt;gensim) (1.17.3)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.1.1</span> -&gt; <span class=" -Color -Color-Green">25.2</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3 -m pip install --upgrade pip</span>
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1052,11 +1044,96 @@ Requirement already satisfied: wrapt in /usr/local/python/3.12.1/lib/python3.12/
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Vektor untuk kata &#39;indonesia&#39;:
-[-0.28502938  0.26682794 -0.17497756  0.4013444   0.22412099 -0.19097108
- -0.00056191  0.4587657  -0.21535033 -0.35252905]
+[-0.30161637 -0.05408197  0.03105937  0.24127802  0.15397796 -0.13342866
+  0.09580482  0.45994794 -0.07458232 -0.2014818 ]
 
 Kata yang mirip dengan &#39;indonesia&#39;:
-[(&#39;uni&#39;, 0.6671031713485718), (&#39;comprehensive&#39;, 0.6653167009353638), (&#39;corruption&#39;, 0.6650586128234863), (&#39;dagang&#39;, 0.6487166285514832), (&#39;canada&#39;, 0.647589385509491)]
+[(&#39;uni&#39;, 0.7013927102088928), (&#39;dagang&#39;, 0.6968299746513367), (&#39;corruption&#39;, 0.6941262483596802), (&#39;comprehensive&#39;, 0.6901801228523254), (&#39;canada&#39;, 0.6892528533935547)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Word2Vec</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># ===============================</span>
+<span class="c1"># 1. Membuat korpus</span>
+<span class="c1"># ===============================</span>
+<span class="n">corpus</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;isi_clean&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="p">[]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># list of lists kata</span>
+
+<span class="c1"># ===============================</span>
+<span class="c1"># 2. Train Word2Vec</span>
+<span class="c1"># ===============================</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="o">=</span><span class="n">corpus</span><span class="p">,</span> <span class="n">vector_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># ===============================</span>
+<span class="c1"># 3. Buat embedding untuk setiap berita</span>
+<span class="c1"># ===============================</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_embedding</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+    <span class="n">vecs</span> <span class="o">=</span> <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="n">w</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vecs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">vecs</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">vector_size</span><span class="p">)</span>
+
+<span class="n">embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">get_embedding</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">])</span>
+
+<span class="c1"># ===============================</span>
+<span class="c1"># 4. Buat DataFrame 900x100</span>
+<span class="c1"># ===============================</span>
+<span class="n">df_embeddings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
+<span class="c1"># Jika mau tambahkan label (misal setiap 100 berita sama labelnya 0-8)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">),</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># 9 kategori × 100 data</span>
+<span class="n">df_embeddings</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_embeddings</span><span class="p">)</span>  <span class="c1"># langsung tampil 900x101</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            0         1         2         3         4         5         6  \
+0   -0.322305  1.084230  0.109905  0.245626  0.092973 -0.126485 -0.180830   
+1   -0.183583  0.905447  0.146838  0.068347  0.073210  0.217179 -0.407050   
+2   -0.202983  1.052036  0.188828  0.091203  0.088818  0.182166 -0.444661   
+3   -0.168104  0.890982  0.133744  0.062701  0.076263  0.221721 -0.395072   
+4   -0.309503  0.992005  0.081904  0.218898  0.101071 -0.096390 -0.165088   
+..        ...       ...       ...       ...       ...       ...       ...   
+895 -0.253859  1.029614  0.186250  0.133106  0.024258 -0.154166 -0.167345   
+896 -0.313542  1.121964  0.173452  0.085700  0.050298 -0.046265 -0.212530   
+897 -0.303154  1.073635  0.163813  0.099296  0.045928 -0.077237 -0.187295   
+898 -0.272972  0.975169  0.162588  0.106983  0.048651 -0.061507 -0.185089   
+899 -0.250863  0.908323  0.152244  0.105190  0.044515 -0.067897 -0.179233   
+
+            7         8         9  ...        91        92        93  \
+0    0.377294 -0.393956 -0.217526  ...  0.382901 -0.201753  0.107929   
+1    0.256935 -0.353186 -0.477423  ...  0.090758 -0.070107  0.271913   
+2    0.308018 -0.420055 -0.503444  ...  0.129676 -0.115892  0.305131   
+3    0.238772 -0.342519 -0.462205  ...  0.089924 -0.056479  0.259443   
+4    0.345653 -0.374729 -0.207801  ...  0.369619 -0.170415  0.102283   
+..        ...       ...       ...  ...       ...       ...       ...   
+895  0.369097 -0.438220 -0.304424  ...  0.327186 -0.172092  0.189430   
+896  0.396207 -0.469856 -0.425184  ...  0.374619 -0.126998  0.272855   
+897  0.385388 -0.454511 -0.376214  ...  0.380977 -0.126238  0.240137   
+898  0.351174 -0.396089 -0.351693  ...  0.330649 -0.110004  0.238482   
+899  0.328237 -0.373450 -0.312491  ...  0.298159 -0.122829  0.210454   
+
+           94        95        96        97        98        99  label  
+0    0.512939  0.226891  0.292626  0.203173  0.057838 -0.377348      0  
+1    0.384930  0.299170  0.104439  0.436644 -0.189421 -0.413952      0  
+2    0.488234  0.336644  0.113700  0.486311 -0.218324 -0.480197      0  
+3    0.367023  0.291085  0.105224  0.441087 -0.180554 -0.417066      0  
+4    0.476039  0.224449  0.280013  0.187197  0.054811 -0.348591      0  
+..        ...       ...       ...       ...       ...       ...    ...  
+895  0.620887  0.270009  0.251479  0.153134 -0.037717 -0.415519      8  
+896  0.634743  0.352629  0.308351  0.230523 -0.093891 -0.419688      8  
+897  0.608960  0.327122  0.314470  0.193391 -0.060062 -0.410293      8  
+898  0.532432  0.291559  0.276209  0.199278 -0.066729 -0.366675      8  
+899  0.502240  0.264434  0.241754  0.181483 -0.060506 -0.347206      8  
+
+[900 rows x 101 columns]
 </pre></div>
 </div>
 </div>
