@@ -185,8 +185,6 @@
 <li class="toctree-l1"><a class="reference internal" href="TF-IDF.html">TF-IDF &amp; Word Embedding</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LDA2.html">Klasifikasi dengan ektraksi fitur menggunakan Latent Dirichlet Allocation (LDA)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">UTS PPW</a></li>
-
-
 </ul>
 
     </div>
@@ -382,8 +380,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">UTS PPW</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lakukan-analisa-klasifikasikan-berita-dengan-extraksi-fitur-model-topik-modelling-dengan-classifier-naive-bayes-dan-svm">1.	Lakukan analisa klasifikasikan berita dengan extraksi fitur model topik modelling dengan classifier naïve bayes dan SVM</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lakukan-analisa-klasifikasikan-berita-dengan-extraksi-fitur-model-topik-modelling-dengan-classifier-naive-bayes-dan-svm">1.	Lakukan analisa klasifikasikan berita dengan extraksi fitur model topik modelling dengan classifier naïve bayes dan SVM</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-pembersihan">Fungsi Pembersihan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-berita">Load Berita</a></li>
@@ -393,17 +390,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data-untuk-traning-dan-testing">Split data untuk traning dan testing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-dengan-naive-bayes-dan-svm">Klasifikasi dengan Naive Bayes dan SVM</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-sebaran-topik">Visualisasi sebaran topik</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lakukan-analisa-clutering-dokumen-pada-data-email-berikut">2.	Lakukan  analisa clutering dokumen pada data email berikut</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lakukan-analisa-clutering-dokumen-pada-data-email-berikut">2.	Lakukan  analisa clutering dokumen pada data email berikut</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bersihkan-data">Bersihkan Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering">Clustering</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-clustering-dengan-pca-2d">Visualisasi Clustering dengan PCA 2D</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -416,9 +408,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="uts-ppw">
 <h1>UTS PPW<a class="headerlink" href="#uts-ppw" title="Link to this heading">#</a></h1>
+<section id="lakukan-analisa-klasifikasikan-berita-dengan-extraksi-fitur-model-topik-modelling-dengan-classifier-naive-bayes-dan-svm">
+<h2>1.	Lakukan analisa klasifikasikan berita dengan extraksi fitur model topik modelling dengan classifier naïve bayes dan SVM<a class="headerlink" href="#lakukan-analisa-klasifikasikan-berita-dengan-extraksi-fitur-model-topik-modelling-dengan-classifier-naive-bayes-dan-svm" title="Link to this heading">#</a></h2>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="lakukan-analisa-klasifikasikan-berita-dengan-extraksi-fitur-model-topik-modelling-dengan-classifier-naive-bayes-dan-svm">
-<h1>1.	Lakukan analisa klasifikasikan berita dengan extraksi fitur model topik modelling dengan classifier naïve bayes dan SVM<a class="headerlink" href="#lakukan-analisa-klasifikasikan-berita-dengan-extraksi-fitur-model-topik-modelling-dengan-classifier-naive-bayes-dan-svm" title="Link to this heading">#</a></h1>
 <section id="import-library">
 <h2>Import Library<a class="headerlink" href="#import-library" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -914,9 +906,8 @@ Internasional       0.94      0.96      0.95        84
 </div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lakukan-analisa-clutering-dokumen-pada-data-email-berikut">
-<h1>2.	Lakukan  analisa clutering dokumen pada data email berikut<a class="headerlink" href="#lakukan-analisa-clutering-dokumen-pada-data-email-berikut" title="Link to this heading">#</a></h1>
+<section id="lakukan-analisa-clutering-dokumen-pada-data-email-berikut">
+<h2>2.	Lakukan  analisa clutering dokumen pada data email berikut<a class="headerlink" href="#lakukan-analisa-clutering-dokumen-pada-data-email-berikut" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -1190,6 +1181,7 @@ Internasional       0.94      0.96      0.95        84
   </div>
 </div></div>
 </div>
+</section>
 <section id="bersihkan-data">
 <h2>Bersihkan Data<a class="headerlink" href="#bersihkan-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -14287,8 +14279,7 @@ Internasional       0.94      0.96      0.95        84
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">UTS PPW</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lakukan-analisa-klasifikasikan-berita-dengan-extraksi-fitur-model-topik-modelling-dengan-classifier-naive-bayes-dan-svm">1.	Lakukan analisa klasifikasikan berita dengan extraksi fitur model topik modelling dengan classifier naïve bayes dan SVM</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lakukan-analisa-klasifikasikan-berita-dengan-extraksi-fitur-model-topik-modelling-dengan-classifier-naive-bayes-dan-svm">1.	Lakukan analisa klasifikasikan berita dengan extraksi fitur model topik modelling dengan classifier naïve bayes dan SVM</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-pembersihan">Fungsi Pembersihan</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-berita">Load Berita</a></li>
@@ -14298,17 +14289,12 @@ Internasional       0.94      0.96      0.95        84
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data-untuk-traning-dan-testing">Split data untuk traning dan testing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-dengan-naive-bayes-dan-svm">Klasifikasi dengan Naive Bayes dan SVM</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-sebaran-topik">Visualisasi sebaran topik</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lakukan-analisa-clutering-dokumen-pada-data-email-berikut">2.	Lakukan  analisa clutering dokumen pada data email berikut</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lakukan-analisa-clutering-dokumen-pada-data-email-berikut">2.	Lakukan  analisa clutering dokumen pada data email berikut</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bersihkan-data">Bersihkan Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering">Clustering</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-clustering-dengan-pca-2d">Visualisasi Clustering dengan PCA 2D</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
