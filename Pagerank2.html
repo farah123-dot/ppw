@@ -574,16 +574,20 @@ Node 2: 0.3974
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>❌ File &#39;web-Google_10k.txt&#39; tidak ditemukan.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>✅ Berhasil membaca file: web-Google_10k.txt
+Jumlah node: 10000
+Jumlah edge: 78323
 
 🏆 Top 5 PageRank tertinggi:
-   Node  PageRank
-2     2  0.397400
-0     0  0.387789
-1     1  0.214811
+        Node  PageRank
+994   486980  0.006515
+3849  285814  0.004633
+113   226374  0.003301
+2847  163075  0.003288
+5214  555924  0.002756
 </pre></div>
 </div>
-<img alt="_images/327c003a8600be042d20b0b121eccea8b02b279909c33724f197433fc7d98047.png" src="_images/327c003a8600be042d20b0b121eccea8b02b279909c33724f197433fc7d98047.png" />
+<img alt="_images/caeccf141a2cd9830b67b3b8cd8e1ad38c141b39b57608c4f8d47a98aa8c99fe.png" src="_images/caeccf141a2cd9830b67b3b8cd8e1ad38c141b39b57608c4f8d47a98aa8c99fe.png" />
 </div>
 </div>
 </section>
@@ -616,7 +620,7 @@ Node 2: 0.3974
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah edge: </span><span class="si">{</span><span class="n">G</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ File &#39;</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&#39; tidak ditemukan. Pastikan file berada di folder &#39;Data/&#39;.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ File &#39;</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&#39; tidak ditemukan. Pastikan file berada di dalam.&quot;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚠️ Terjadi error saat membaca file: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
@@ -862,7 +866,7 @@ Jumlah edge dalam graph: 1492
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Jumlah edge: </span><span class="si">{</span><span class="n">G</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ File &#39;</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&#39; tidak ditemukan. Pastikan file berada di folder &#39;Data/&#39;.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ File &#39;</span><span class="si">{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">&#39; tidak ditemukan. Pastikan file berada di dalam&#39;.&quot;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚠️ Terjadi error saat membaca file: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
