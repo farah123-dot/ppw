@@ -57,7 +57,7 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Komunitas';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Data_Facebook';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Web Usage Mining" href="Web_Usage.html" />
@@ -259,7 +259,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FKomunitas.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FData_Facebook.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -289,7 +289,7 @@
       
       
       
-      <li><a href="_sources/Komunitas.ipynb" target="_blank"
+      <li><a href="_sources/Data_Facebook.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -516,16 +516,9 @@ Requirement already satisfied: pure-eval in /home/codespace/.local/lib/python3.1
 <span class="c1"># -----------------------------------------------------------</span>
 <span class="c1"># 3. Visualisasi 2D graph (kompleks)</span>
 <span class="c1"># -----------------------------------------------------------</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 
-<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span>
-    <span class="n">G</span><span class="p">,</span>
-    <span class="n">k</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>          <span class="c1"># jarak ideal sedikit diperkecil</span>
-    <span class="n">iterations</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>  <span class="c1"># dari 50 jadi 20</span>
-    <span class="n">threshold</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="c1"># konvergensi lebih cepat</span>
-    <span class="n">seed</span><span class="o">=</span><span class="mi">42</span>
-<span class="p">)</span>
-
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">partition</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
 
 <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span>
@@ -533,16 +526,16 @@ Requirement already satisfied: pure-eval in /home/codespace/.local/lib/python3.1
     <span class="n">node_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
     <span class="n">node_color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
     <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab20</span><span class="p">,</span>
-    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span>
 <span class="p">)</span>
 
 <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span>
     <span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span>
-    <span class="n">width</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span>
 <span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Deteksi Komunitas Facebook (Louvain)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Deteksi Komunitas Facebook (Algoritma Louvain)</span><span class="se">\n</span><span class="s2">Graph Kompleks &amp; Tidak Sederhana&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -558,10 +551,78 @@ Rata-rata Degree per Node:        43.69
 =============================================
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah Komunitas Terdeteksi : 15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah Komunitas Terdeteksi : 16
 </pre></div>
 </div>
-<img alt="_images/acd347fd618e1013a413c95c34695b906902382736d54b6204962a1602504a20.png" src="_images/acd347fd618e1013a413c95c34695b906902382736d54b6204962a1602504a20.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">48</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="c1"># -----------------------------------------------------------</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="c1"># 3. Visualisasi 2D graph (kompleks)</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="c1"># -----------------------------------------------------------</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="ne">---&gt; </span><span class="mi">48</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">partition</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span>     <span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span>     <span class="n">node_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="mi">56</span>     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/networkx/utils/decorators.py:789,</span> in <span class="ni">argmap.__call__.&lt;locals&gt;.func</span><span class="nt">(_argmap__wrapper, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span> <span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">__wrapper</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">789</span>     <span class="k">return</span> <span class="n">argmap</span><span class="o">.</span><span class="n">_lazy_compile</span><span class="p">(</span><span class="n">__wrapper</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File &lt;class &#39;networkx.utils.decorators.argmap&#39;&gt; compilation 22:4,</span> in <span class="ni">argmap_spring_layout_19</span><span class="nt">(G, k, pos, fixed, iterations, threshold, weight, scale, center, dim, seed)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/networkx/drawing/layout.py:483,</span> in <span class="ni">spring_layout</span><span class="nt">(G, k, pos, fixed, iterations, threshold, weight, scale, center, dim, seed)</span>
+<span class="g g-Whitespace">    </span><span class="mi">481</span>         <span class="n">nnodes</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+<span class="g g-Whitespace">    </span><span class="mi">482</span>         <span class="n">k</span> <span class="o">=</span> <span class="n">dom_size</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">nnodes</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">483</span>     <span class="n">pos</span> <span class="o">=</span> <span class="n">_sparse_fruchterman_reingold</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span>         <span class="n">A</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">pos_arr</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">iterations</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">seed</span>
+<span class="g g-Whitespace">    </span><span class="mi">485</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">486</span> <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">487</span>     <span class="n">A</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">to_numpy_array</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/networkx/utils/decorators.py:789,</span> in <span class="ni">argmap.__call__.&lt;locals&gt;.func</span><span class="nt">(_argmap__wrapper, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span> <span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">__wrapper</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">789</span>     <span class="k">return</span> <span class="n">argmap</span><span class="o">.</span><span class="n">_lazy_compile</span><span class="p">(</span><span class="n">__wrapper</span><span class="p">)(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File &lt;class &#39;networkx.utils.decorators.argmap&#39;&gt; compilation 30:4,</span> in <span class="ni">argmap__sparse_fruchterman_reingold_27</span><span class="nt">(A, k, pos, fixed, iterations, threshold, dim, seed)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">collections</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="nn">File ~/.local/lib/python3.12/site-packages/networkx/drawing/layout.py:618,</span> in <span class="ni">_sparse_fruchterman_reingold</span><span class="nt">(A, k, pos, fixed, iterations, threshold, dim, seed)</span>
+<span class="g g-Whitespace">    </span><span class="mi">616</span> <span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">pos</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="c1"># distance between points</span>
+<span class="ne">--&gt; </span><span class="mi">618</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">delta</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">619</span> <span class="c1"># enforce minimum distance of 0.01</span>
+<span class="g g-Whitespace">    </span><span class="mi">620</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">distance</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/python/3.12.1/lib/python3.12/site-packages/numpy/core/_methods.py:47,</span> in <span class="ni">_sum</span><span class="nt">(a, axis, dtype, out, keepdims, initial, where)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="k">def</span><span class="w"> </span><span class="nf">_amin</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>           <span class="n">initial</span><span class="o">=</span><span class="n">_NoValue</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="k">return</span> <span class="n">umr_minimum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">47</span> <span class="k">def</span><span class="w"> </span><span class="nf">_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span>          <span class="n">initial</span><span class="o">=</span><span class="n">_NoValue</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>     <span class="k">return</span> <span class="n">umr_sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="k">def</span><span class="w"> </span><span class="nf">_prod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span>           <span class="n">initial</span><span class="o">=</span><span class="n">_NoValue</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x700 with 0 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 </section>
