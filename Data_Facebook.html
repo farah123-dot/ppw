@@ -414,10 +414,10 @@ Requirement already satisfied: numpy&gt;=1.23 in /usr/local/python/3.12.1/lib/py
 Requirement already satisfied: packaging&gt;=20.0 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib) (25.0)
 Requirement already satisfied: pillow&gt;=8 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib) (11.3.0)
 Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib) (3.2.3)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib) (2.9.0.post0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.17.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dateutil&gt;=2.7 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib) (2.9.0.post0)
+Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.17.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.2</span> -&gt; <span class=" -Color -Color-Green">25.3</span>
@@ -444,7 +444,9 @@ Requirement already satisfied: numpy in /usr/local/python/3.12.1/lib/python3.12/
 Requirement already satisfied: ipython&gt;=5.3.0 in /home/codespace/.local/lib/python3.12/site-packages (from pyvis) (9.4.0)
 Requirement already satisfied: jinja2&gt;=2.9.6 in /home/codespace/.local/lib/python3.12/site-packages (from pyvis) (3.1.6)
 Requirement already satisfied: jsonpickle&gt;=1.4.1 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pyvis) (4.1.1)
-Requirement already satisfied: networkx&gt;=1.11 in /home/codespace/.local/lib/python3.12/site-packages (from pyvis) (3.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: networkx&gt;=1.11 in /home/codespace/.local/lib/python3.12/site-packages (from pyvis) (3.3)
 Requirement already satisfied: decorator in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.3.0-&gt;pyvis) (5.2.1)
 Requirement already satisfied: ipython-pygments-lexers in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.3.0-&gt;pyvis) (1.1.1)
 Requirement already satisfied: jedi&gt;=0.16 in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.3.0-&gt;pyvis) (0.19.2)
@@ -456,9 +458,7 @@ Requirement already satisfied: stack_data in /home/codespace/.local/lib/python3.
 Requirement already satisfied: traitlets&gt;=5.13.0 in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.3.0-&gt;pyvis) (5.14.3)
 Requirement already satisfied: wcwidth in /home/codespace/.local/lib/python3.12/site-packages (from prompt_toolkit&lt;3.1.0,&gt;=3.0.41-&gt;ipython&gt;=5.3.0-&gt;pyvis) (0.2.13)
 Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.4 in /home/codespace/.local/lib/python3.12/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=5.3.0-&gt;pyvis) (0.8.4)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/python3.12/site-packages (from jinja2&gt;=2.9.6-&gt;pyvis) (3.0.2)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/python3.12/site-packages (from jinja2&gt;=2.9.6-&gt;pyvis) (3.0.2)
 Requirement already satisfied: ptyprocess&gt;=0.5 in /home/codespace/.local/lib/python3.12/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=5.3.0-&gt;pyvis) (0.7.0)
 Requirement already satisfied: executing&gt;=1.2.0 in /home/codespace/.local/lib/python3.12/site-packages (from stack_data-&gt;ipython&gt;=5.3.0-&gt;pyvis) (2.2.0)
 Requirement already satisfied: asttokens&gt;=2.1.0 in /home/codespace/.local/lib/python3.12/site-packages (from stack_data-&gt;ipython&gt;=5.3.0-&gt;pyvis) (3.0.0)
@@ -518,14 +518,14 @@ Requirement already satisfied: pure-eval in /home/codespace/.local/lib/python3.1
 <span class="c1"># -----------------------------------------------------------</span>
 <span class="c1"># 3. Visualisasi 2D graph (kompleks)</span>
 <span class="c1"># -----------------------------------------------------------</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 
 <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">partition</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
 
 <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span>
     <span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span>
-    <span class="n">node_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">node_size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
     <span class="n">node_color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
     <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab20</span><span class="p">,</span>
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span>
@@ -553,10 +553,10 @@ Rata-rata Degree per Node:        43.69
 =============================================
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah Komunitas Terdeteksi : 15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah Komunitas Terdeteksi : 16
 </pre></div>
 </div>
-<img alt="_images/1d79fbd9229403ea9f4bf813f1f7ee40ecdddd7a2310ec8fe9f8d7978eba3184.png" src="_images/1d79fbd9229403ea9f4bf813f1f7ee40ecdddd7a2310ec8fe9f8d7978eba3184.png" />
+<img alt="_images/bcce483d5fb48378c4eb8b0244d7cb21c9d5121a2e4465d1a54278ef49c7513a.png" src="_images/bcce483d5fb48378c4eb8b0244d7cb21c9d5121a2e4465d1a54278ef49c7513a.png" />
 </div>
 </div>
 </section>
