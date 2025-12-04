@@ -414,10 +414,10 @@ Requirement already satisfied: numpy&gt;=1.23 in /usr/local/python/3.12.1/lib/py
 Requirement already satisfied: packaging&gt;=20.0 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib) (25.0)
 Requirement already satisfied: pillow&gt;=8 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib) (11.3.0)
 Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib) (3.2.3)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib) (2.9.0.post0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dateutil&gt;=2.7 in /home/codespace/.local/lib/python3.12/site-packages (from matplotlib) (2.9.0.post0)
-Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.17.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.12/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.17.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.2</span> -&gt; <span class=" -Color -Color-Green">25.3</span>
@@ -444,9 +444,7 @@ Requirement already satisfied: numpy in /usr/local/python/3.12.1/lib/python3.12/
 Requirement already satisfied: ipython&gt;=5.3.0 in /home/codespace/.local/lib/python3.12/site-packages (from pyvis) (9.4.0)
 Requirement already satisfied: jinja2&gt;=2.9.6 in /home/codespace/.local/lib/python3.12/site-packages (from pyvis) (3.1.6)
 Requirement already satisfied: jsonpickle&gt;=1.4.1 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pyvis) (4.1.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: networkx&gt;=1.11 in /home/codespace/.local/lib/python3.12/site-packages (from pyvis) (3.3)
+Requirement already satisfied: networkx&gt;=1.11 in /home/codespace/.local/lib/python3.12/site-packages (from pyvis) (3.3)
 Requirement already satisfied: decorator in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.3.0-&gt;pyvis) (5.2.1)
 Requirement already satisfied: ipython-pygments-lexers in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.3.0-&gt;pyvis) (1.1.1)
 Requirement already satisfied: jedi&gt;=0.16 in /home/codespace/.local/lib/python3.12/site-packages (from ipython&gt;=5.3.0-&gt;pyvis) (0.19.2)
@@ -459,7 +457,9 @@ Requirement already satisfied: traitlets&gt;=5.13.0 in /home/codespace/.local/li
 Requirement already satisfied: wcwidth in /home/codespace/.local/lib/python3.12/site-packages (from prompt_toolkit&lt;3.1.0,&gt;=3.0.41-&gt;ipython&gt;=5.3.0-&gt;pyvis) (0.2.13)
 Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.4 in /home/codespace/.local/lib/python3.12/site-packages (from jedi&gt;=0.16-&gt;ipython&gt;=5.3.0-&gt;pyvis) (0.8.4)
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/codespace/.local/lib/python3.12/site-packages (from jinja2&gt;=2.9.6-&gt;pyvis) (3.0.2)
-Requirement already satisfied: ptyprocess&gt;=0.5 in /home/codespace/.local/lib/python3.12/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=5.3.0-&gt;pyvis) (0.7.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ptyprocess&gt;=0.5 in /home/codespace/.local/lib/python3.12/site-packages (from pexpect&gt;4.3-&gt;ipython&gt;=5.3.0-&gt;pyvis) (0.7.0)
 Requirement already satisfied: executing&gt;=1.2.0 in /home/codespace/.local/lib/python3.12/site-packages (from stack_data-&gt;ipython&gt;=5.3.0-&gt;pyvis) (2.2.0)
 Requirement already satisfied: asttokens&gt;=2.1.0 in /home/codespace/.local/lib/python3.12/site-packages (from stack_data-&gt;ipython&gt;=5.3.0-&gt;pyvis) (3.0.0)
 Requirement already satisfied: pure-eval in /home/codespace/.local/lib/python3.12/site-packages (from stack_data-&gt;ipython&gt;=5.3.0-&gt;pyvis) (0.2.3)
@@ -537,7 +537,7 @@ Requirement already satisfied: pure-eval in /home/codespace/.local/lib/python3.1
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span>
 <span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Deteksi Komunitas Facebook (Algoritma Louvain)</span><span class="se">\n</span><span class="s2">Graph Kompleks &amp; Tidak Sederhana&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Deteksi Komunitas Facebook (Algoritma Louvain)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -553,10 +553,10 @@ Rata-rata Degree per Node:        43.69
 =============================================
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah Komunitas Terdeteksi : 16
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah Komunitas Terdeteksi : 15
 </pre></div>
 </div>
-<img alt="_images/bcce483d5fb48378c4eb8b0244d7cb21c9d5121a2e4465d1a54278ef49c7513a.png" src="_images/bcce483d5fb48378c4eb8b0244d7cb21c9d5121a2e4465d1a54278ef49c7513a.png" />
+<img alt="_images/622917484d6d1e1a6dd4eb19ca1743935ef76280dff24854812ac01aebfb01eb.png" src="_images/622917484d6d1e1a6dd4eb19ca1743935ef76280dff24854812ac01aebfb01eb.png" />
 </div>
 </div>
 </section>
