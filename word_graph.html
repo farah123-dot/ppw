@@ -57,9 +57,10 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Word_Graph';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'word_graph';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Deteksi Komunitas Facebook" href="facebook.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +123,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,7 +178,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Pengantar.html">Pengantar Web mining</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Crawling.html">Crawling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="crawling_pta.html">Crawling PTA dan Berita</a></li>
@@ -189,7 +188,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Pagerank2.html">Page Rank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Web_Usage.html">Web Usage Mining</a></li>
 <li class="toctree-l1"><a class="reference internal" href="facebook.html">Deteksi Komunitas Facebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="word_graph.html">Word Graph pada paper banjir di samarinda</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Word Graph pada paper banjir di samarinda</a></li>
 </ul>
 
     </div>
@@ -261,7 +260,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FWord_Graph.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fword_graph.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -291,7 +290,7 @@
       
       
       
-      <li><a href="_sources/Word_Graph.ipynb" target="_blank"
+      <li><a href="_sources/word_graph.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -418,9 +417,7 @@ Requirement already satisfied: tqdm in /usr/local/python/3.12.1/lib/python3.12/s
 Requirement already satisfied: click in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (8.3.0)
 Requirement already satisfied: joblib in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (1.5.2)
 Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from nltk) (2025.9.18)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.26.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pandas) (1.26.4)
+Requirement already satisfied: numpy&gt;=1.26.0 in /usr/local/python/3.12.1/lib/python3.12/site-packages (from pandas) (1.26.4)
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/codespace/.local/lib/python3.12/site-packages (from pandas) (2.9.0.post0)
 Requirement already satisfied: pytz&gt;=2020.1 in /home/codespace/.local/lib/python3.12/site-packages (from pandas) (2025.2)
 Requirement already satisfied: tzdata&gt;=2022.7 in /home/codespace/.local/lib/python3.12/site-packages (from pandas) (2025.2)
@@ -512,6 +509,46 @@ identify the cau
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">clean_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="c1"># buang bagian referensi kalau ada</span>
+    <span class="n">cut</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(DAFTAR PUSTAKA|REFERENSI|References|Bibliographie)&quot;</span><span class="p">,</span>
+                    <span class="n">text</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cut</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="p">[:</span><span class="n">cut</span><span class="o">.</span><span class="n">start</span><span class="p">()]</span>
+    <span class="c1"># rapikan spasi</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="n">cleaned</span> <span class="o">=</span> <span class="n">clean_text</span><span class="p">(</span><span class="n">pdf_text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Panjang teks cleaned:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cleaned</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cleaned</span><span class="p">[:</span><span class="mi">500</span><span class="p">])</span>
+
+<span class="c1"># --- tokenisasi kata: jaga urutan! ---</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">cleaned</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+<span class="c1"># ambil hanya huruf (buang angka/tanda baca)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^a-zA-Z]&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">]</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>  <span class="c1"># buang string kosong</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total kata:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;20 kata pertama:&quot;</span><span class="p">,</span> <span class="n">words</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Panjang teks cleaned: 13944
+39 Jurnal Geografi Gea, Volume 20, Nomor 1, April 2020 ANALISIS PENYEBAB BANJIR DI KOTA SAMARINDA Haris Setiawan1, Muhammad Jalil2, Muhammad Enggi S3, Fathan Purwadi4, Christopel Adios S5, Asri Wahyu Brata6, Andi Syaful Jufda7 1,2,3,4,5,6 ,7Program Studi Pendidikan Geografi, Fakulta s Keguruan dan Ilmu Pendidikan, Universitas Mulawarman 121enggi@gmail.com ABSTRACT The purpose of this study was to determine the distribution of floods in Samarinda City, identify the causes of flooding in Samarinda
+Total kata: 1880
+20 kata pertama: [&#39;jurnal&#39;, &#39;geografi&#39;, &#39;gea&#39;, &#39;volume&#39;, &#39;nomor&#39;, &#39;april&#39;, &#39;analisis&#39;, &#39;penyebab&#39;, &#39;banjir&#39;, &#39;di&#39;, &#39;kota&#39;, &#39;samarinda&#39;, &#39;haris&#39;, &#39;setiawan&#39;, &#39;muhammad&#39;, &#39;jalil&#39;, &#39;muhammad&#39;, &#39;enggi&#39;, &#39;s&#39;, &#39;fathan&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">sent_tokenize</span><span class="p">,</span> <span class="n">word_tokenize</span>
@@ -586,10 +623,6 @@ identify the cau
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /home/codespace/nltk_data...
-[nltk_data]   Package punkt is already up-to-date!
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Panjang teks cleaned: 13944
 39 Jurnal Geografi Gea, Volume 20, Nomor 1, April 2020 ANALISIS PENYEBAB BANJIR DI KOTA SAMARINDA Haris Setiawan1, Muhammad Jalil2, Muhammad Enggi S3, Fathan Purwadi4, Christopel Adios S5, Asri Wahyu Brata6, Andi Syaful Jufda7 1,2,3,4,5,6 ,7Program Studi Pendidikan Geografi, Fakulta s Keguruan dan Ilmu Pendidikan, Universitas Mulawarman 121enggi@gmail.com ABSTRACT The purpose of this study was to determine the distribution of floods in Samarinda City, identify the causes of flooding in Samarinda
 
@@ -614,6 +647,10 @@ people of Samarinda City.
 
 Total kata: 2096
 20 kata pertama: [&#39;jurnal&#39;, &#39;geografi&#39;, &#39;gea&#39;, &#39;volume&#39;, &#39;nomor&#39;, &#39;april&#39;, &#39;analisis&#39;, &#39;penyebab&#39;, &#39;banjir&#39;, &#39;di&#39;, &#39;kota&#39;, &#39;samarinda&#39;, &#39;haris&#39;, &#39;setiawan&#39;, &#39;muhammad&#39;, &#39;jalil&#39;, &#39;muhammad&#39;, &#39;enggi&#39;, &#39;s&#39;, &#39;fathan&#39;]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /home/codespace/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
 </pre></div>
 </div>
 </div>
@@ -677,12 +714,571 @@ Jumlah edge (pasangan tetangga): 1494
         <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># graph tak berarah</span>
 
 <span class="n">adj_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">top_vocab</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">top_vocab</span><span class="p">)</span>
+<span class="c1"># SIMPAN KE FILE CSV</span>
+<span class="c1"># ===============================</span>
+<span class="n">adj_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;adjacency_matrix.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">adj_df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kata yang dipakai di matriks: [&#39;banjir&#39;, &#39;yang&#39;, &#39;di&#39;, &#39;samarinda&#39;, &#39;dan&#39;, &#39;kota&#39;, &#39;air&#39;, &#39;bencana&#39;, &#39;daerah&#39;, &#39;the&#39;, &#39;pada&#39;, &#39;sungai&#39;, &#39;hujan&#39;, &#39;adalah&#39;, &#39;dalam&#39;, &#39;manusia&#39;, &#39;akan&#39;, &#39;of&#39;, &#39;dengan&#39;, &#39;pasang&#39;]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>banjir</th>
+      <th>yang</th>
+      <th>di</th>
+      <th>samarinda</th>
+      <th>dan</th>
+      <th>kota</th>
+      <th>air</th>
+      <th>bencana</th>
+      <th>daerah</th>
+      <th>the</th>
+      <th>pada</th>
+      <th>sungai</th>
+      <th>hujan</th>
+      <th>adalah</th>
+      <th>dalam</th>
+      <th>manusia</th>
+      <th>akan</th>
+      <th>of</th>
+      <th>dengan</th>
+      <th>pasang</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>banjir</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>yang</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>di</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>samarinda</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>dan</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>kota</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>air</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>bencana</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>daerah</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>the</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>pada</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>sungai</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>hujan</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>adalah</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>dalam</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>manusia</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>akan</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>of</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>dengan</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>pasang</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Parameter</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>            <span class="c1"># jumlah kata teratas</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># 1 = tetangga langsung; ubah jadi 2/3 kalau mau konteks lebih luas</span>
+
+<span class="c1"># Ambil top N kata berdasarkan frekuensi (menggunakan &#39;words&#39; dari preprocessing)</span>
+<span class="n">freq</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="n">top_vocab</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">freq</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kata yang dipakai di matriks:&quot;</span><span class="p">,</span> <span class="n">top_vocab</span><span class="p">)</span>
+
+<span class="c1"># Map kata -&gt; indeks</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">w</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">top_vocab</span><span class="p">)}</span>
+
+<span class="c1"># Matriks biner NxN</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+    <span class="n">w_i</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">w_i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="c1"># lihat kata-kata dalam window ke kanan (hindari double setting yang tidak perlu)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">window_size</span><span class="p">,</span> <span class="n">L</span><span class="p">)):</span>
+        <span class="n">w_j</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">w_j</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">idx</span><span class="p">[</span><span class="n">w_i</span><span class="p">],</span> <span class="n">idx</span><span class="p">[</span><span class="n">w_j</span><span class="p">]</span>
+        <span class="c1"># set 1 jika pernah bertetangga (tetap 1 walau muncul berkali-kali)</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1"># simetris (graph tak berarah)</span>
+
+<span class="c1"># Buat DataFrame dan simpan</span>
+<span class="n">adj_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">top_vocab</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">top_vocab</span><span class="p">)</span>
+<span class="n">adj_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;adjacency_binary_matrix.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Matriks Adjacency Biner (Top </span><span class="si">{}</span><span class="s2"> kata, window=</span><span class="si">{}</span><span class="s2">) ===&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">window_size</span><span class="p">))</span>
+<span class="n">adj_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kata yang dipakai di matriks: [&#39;banjir&#39;, &#39;yang&#39;, &#39;di&#39;, &#39;samarinda&#39;, &#39;dan&#39;, &#39;kota&#39;, &#39;air&#39;, &#39;bencana&#39;, &#39;daerah&#39;, &#39;the&#39;, &#39;pada&#39;, &#39;sungai&#39;, &#39;hujan&#39;, &#39;adalah&#39;, &#39;dalam&#39;, &#39;manusia&#39;, &#39;akan&#39;, &#39;of&#39;, &#39;dengan&#39;, &#39;pasang&#39;]
+=== Matriks Adjacency Biner (Top 20 kata, window=1) ===
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1349,7 +1945,7 @@ Jumlah edge (pasangan tetangga): 1494
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bd82116cc933ccd311238833c2a366da937468e8f09664345f2f83b466565296.png" src="_images/bd82116cc933ccd311238833c2a366da937468e8f09664345f2f83b466565296.png" />
+<img alt="_images/70e6a058c208308e9b04c4f1f5d52b4222ac52b82cb01cdfa11757b46cd301fd.png" src="_images/70e6a058c208308e9b04c4f1f5d52b4222ac52b82cb01cdfa11757b46cd301fd.png" />
 </div>
 </div>
 </section>
@@ -1384,6 +1980,15 @@ Jumlah edge (pasangan tetangga): 1494
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="facebook.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Deteksi Komunitas Facebook</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
