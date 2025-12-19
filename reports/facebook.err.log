@@ -31,8 +31,8 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['import networkx as nx', 'import matplotlib.pyplot as plt', 'from community import community_louvain', 'import numpy as np', 'import random']
+['import networkx as nx', 'import matplotlib.pyplot as plt', 'from community import community_louvain', 'import numpy as np', '']
 ...
-[')', '', 'plt.title("Deteksi Komunitas Facebook (Algoritma Louvain)\\nGraph Kompleks & Tidak Sederhana", fontsize=15)', "plt.axis('off')", 'plt.show()']
+['    "Connected Component Terbesar (Tidak Acak)",', '    fontsize=14', ')', 'plt.axis("off")', 'plt.show()']
 -------------------
 
